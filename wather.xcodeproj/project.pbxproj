@@ -7,16 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36384397511770E6C29C7053 /* Pods_wather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B591ACAEB21464A8C67E268 /* Pods_wather.framework */; };
 		637305BD1D9BADB2003421B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637305BC1D9BADB2003421B6 /* AppDelegate.swift */; };
 		637305BF1D9BADB2003421B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637305BE1D9BADB2003421B6 /* ViewController.swift */; };
-		637305C21D9BADB2003421B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 637305C01D9BADB2003421B6 /* Main.storyboard */; };
 		637305C41D9BADB2003421B6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 637305C31D9BADB2003421B6 /* Images.xcassets */; };
 		637305C71D9BADB2003421B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 637305C51D9BADB2003421B6 /* LaunchScreen.storyboard */; };
 		637305D21D9BADB2003421B6 /* watherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637305D11D9BADB2003421B6 /* watherTests.swift */; };
 		637305DD1D9BADB2003421B6 /* watherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637305DC1D9BADB2003421B6 /* watherUITests.swift */; };
 		637305EB1D9BD198003421B6 /* OpenWeatherMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637305EA1D9BD198003421B6 /* OpenWeatherMap.swift */; };
-		637305ED1D9BFAA0003421B6 /* SupportingFiles in Resources */ = {isa = PBXBuildFile; fileRef = 637305EC1D9BFAA0003421B6 /* SupportingFiles */; };
-		637305F11D9BFD3B003421B6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 637305F01D9BFD3B003421B6 /* Info.plist */; };
+		6379E4BA1D9E5DB300E66DAE /* CheckInternetConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6379E4B91D9E5DB300E66DAE /* CheckInternetConnection.swift */; };
+		6379E4BC1D9E702700E66DAE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6379E4BB1D9E702700E66DAE /* CoreLocation.framework */; };
+		6379E4C01D9EB3BC00E66DAE /* back.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6379E4BF1D9EB3BC00E66DAE /* back.jpg */; };
+		638965631DA25F9D00C852A5 /* back2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 638965621DA25F9D00C852A5 /* back2.jpg */; };
+		639088B21D9D1AE40049B167 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 639088B11D9D1AE40049B167 /* Main.storyboard */; };
+		63C587831DA18FEB00A66A05 /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C587821DA18FEB00A66A05 /* ForecastViewController.swift */; };
+		63F262051D9D0FEB0017F620 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63F262041D9D0FEB0017F620 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,10 +42,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14B54E86DA1D1E3814B98361 /* Pods-wather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wather/Pods-wather.debug.xcconfig"; sourceTree = "<group>"; };
+		1B591ACAEB21464A8C67E268 /* Pods_wather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		637305B91D9BADB1003421B6 /* wather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		637305BC1D9BADB2003421B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		637305BE1D9BADB2003421B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		637305C11D9BADB2003421B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		637305C31D9BADB2003421B6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		637305C61D9BADB2003421B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		637305CD1D9BADB2003421B6 /* watherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = watherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,8 +56,16 @@
 		637305DC1D9BADB2003421B6 /* watherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = watherUITests.swift; sourceTree = "<group>"; };
 		637305DE1D9BADB2003421B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		637305EA1D9BD198003421B6 /* OpenWeatherMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenWeatherMap.swift; sourceTree = "<group>"; };
-		637305EC1D9BFAA0003421B6 /* SupportingFiles */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SupportingFiles; path = ../../SupportingFiles; sourceTree = "<group>"; };
-		637305F01D9BFD3B003421B6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../Info.plist; sourceTree = "<group>"; };
+		6379E4B91D9E5DB300E66DAE /* CheckInternetConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInternetConnection.swift; sourceTree = "<group>"; };
+		6379E4BB1D9E702700E66DAE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		6379E4BF1D9EB3BC00E66DAE /* back.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = back.jpg; sourceTree = "<group>"; };
+		638965621DA25F9D00C852A5 /* back2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = back2.jpg; sourceTree = "<group>"; };
+		639088B11D9D1AE40049B167 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		639088B31D9D3B970049B167 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../Library/Developer/Xcode/DerivedData/wather-dbckbfehhgkvxcgmzpcfknjjmddg/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
+		639088B51D9D3B9D0049B167 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../Library/Developer/Xcode/DerivedData/wather-dbckbfehhgkvxcgmzpcfknjjmddg/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
+		63C587821DA18FEB00A66A05 /* ForecastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastViewController.swift; sourceTree = "<group>"; };
+		63F262041D9D0FEB0017F620 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4BBFF4DD8C2E288A7DD7409 /* Pods-wather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wather.release.xcconfig"; path = "Pods/Target Support Files/Pods-wather/Pods-wather.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +73,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6379E4BC1D9E702700E66DAE /* CoreLocation.framework in Frameworks */,
+				36384397511770E6C29C7053 /* Pods_wather.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +95,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2466ED2C4B1E7DC0387E876E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6379E4BB1D9E702700E66DAE /* CoreLocation.framework */,
+				639088B51D9D3B9D0049B167 /* Alamofire.framework */,
+				639088B31D9D3B970049B167 /* SwiftyJSON.framework */,
+				1B591ACAEB21464A8C67E268 /* Pods_wather.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		637305B01D9BADB1003421B6 = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +113,8 @@
 				637305D01D9BADB2003421B6 /* watherTests */,
 				637305DB1D9BADB2003421B6 /* watherUITests */,
 				637305BA1D9BADB1003421B6 /* Products */,
+				D55001F5F8A4148D135584A0 /* Pods */,
+				2466ED2C4B1E7DC0387E876E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,12 +133,15 @@
 			children = (
 				637305BC1D9BADB2003421B6 /* AppDelegate.swift */,
 				637305BE1D9BADB2003421B6 /* ViewController.swift */,
-				637305F01D9BFD3B003421B6 /* Info.plist */,
+				63C587821DA18FEB00A66A05 /* ForecastViewController.swift */,
 				637305EA1D9BD198003421B6 /* OpenWeatherMap.swift */,
-				637305C01D9BADB2003421B6 /* Main.storyboard */,
 				637305C31D9BADB2003421B6 /* Images.xcassets */,
+				639088B11D9D1AE40049B167 /* Main.storyboard */,
 				637305C51D9BADB2003421B6 /* LaunchScreen.storyboard */,
-				637305EC1D9BFAA0003421B6 /* SupportingFiles */,
+				63F262041D9D0FEB0017F620 /* Info.plist */,
+				6379E4B91D9E5DB300E66DAE /* CheckInternetConnection.swift */,
+				6379E4BF1D9EB3BC00E66DAE /* back.jpg */,
+				638965621DA25F9D00C852A5 /* back2.jpg */,
 			);
 			path = wather;
 			sourceTree = "<group>";
@@ -132,6 +164,15 @@
 			path = watherUITests;
 			sourceTree = "<group>";
 		};
+		D55001F5F8A4148D135584A0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				14B54E86DA1D1E3814B98361 /* Pods-wather.debug.xcconfig */,
+				D4BBFF4DD8C2E288A7DD7409 /* Pods-wather.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,9 +180,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 637305E11D9BADB2003421B6 /* Build configuration list for PBXNativeTarget "wather" */;
 			buildPhases = (
+				E422BE166F03102260FD443F /* [CP] Check Pods Manifest.lock */,
 				637305B51D9BADB1003421B6 /* Sources */,
 				637305B61D9BADB1003421B6 /* Frameworks */,
 				637305B71D9BADB1003421B6 /* Resources */,
+				30AD432E1D0D9F71CECF4DD3 /* [CP] Embed Pods Frameworks */,
+				B35DA253DAADEFEB5669667B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -239,11 +283,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63F262051D9D0FEB0017F620 /* Info.plist in Resources */,
 				637305C71D9BADB2003421B6 /* LaunchScreen.storyboard in Resources */,
 				637305C41D9BADB2003421B6 /* Images.xcassets in Resources */,
-				637305ED1D9BFAA0003421B6 /* SupportingFiles in Resources */,
-				637305F11D9BFD3B003421B6 /* Info.plist in Resources */,
-				637305C21D9BADB2003421B6 /* Main.storyboard in Resources */,
+				6379E4C01D9EB3BC00E66DAE /* back.jpg in Resources */,
+				638965631DA25F9D00C852A5 /* back2.jpg in Resources */,
+				639088B21D9D1AE40049B167 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +308,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		30AD432E1D0D9F71CECF4DD3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-wather/Pods-wather-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B35DA253DAADEFEB5669667B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-wather/Pods-wather-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E422BE166F03102260FD443F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		637305B51D9BADB1003421B6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -270,7 +363,9 @@
 			files = (
 				637305EB1D9BD198003421B6 /* OpenWeatherMap.swift in Sources */,
 				637305BF1D9BADB2003421B6 /* ViewController.swift in Sources */,
+				63C587831DA18FEB00A66A05 /* ForecastViewController.swift in Sources */,
 				637305BD1D9BADB2003421B6 /* AppDelegate.swift in Sources */,
+				6379E4BA1D9E5DB300E66DAE /* CheckInternetConnection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,14 +401,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		637305C01D9BADB2003421B6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				637305C11D9BADB2003421B6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		637305C51D9BADB2003421B6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -418,6 +505,7 @@
 		};
 		637305E21D9BADB2003421B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14B54E86DA1D1E3814B98361 /* Pods-wather.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = wather/Info.plist;
@@ -430,6 +518,7 @@
 		};
 		637305E31D9BADB2003421B6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4BBFF4DD8C2E288A7DD7409 /* Pods-wather.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = wather/Info.plist;

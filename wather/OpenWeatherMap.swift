@@ -8,33 +8,62 @@
 
 import Foundation
 import UIKit
+import SwiftyJSON
+import Alamofire
+import CoreLocation
+
+
+protocol OpenWeatherMapDelegate {
+    
+    func updateWeatherInfo(weatherJson: JSON)
+    func failure()
+    
+}
+
 
 class OpenWeatherMap {
     
-    var nameCity: String
-    var temp: Int
-    var description: String
-    var currentTime: String?
-    var image: UIImage?
+     let weatherUrl = URL(string: "http://api.openweathermap.org/data/2.5/forecast?&&APPID=87159f509b2ef104a1109320fe4cc92c")!
     
-    init(weatherJson: NSDictionary) {
-        nameCity = weatherJson["name"] as! String
-        
-        let main = weatherJson["main"] as! NSDictionary
-        temp = main["temp"] as! Int
-        
-        let weather = weatherJson["weather"] as! NSArray
-        let zero = weather[0] as! NSDictionary
-        description = zero["description"] as! String
-        
-        let dt = weatherJson["dt"] as! Int
-        currentTime = timeFromUnix(unixTime: dt)
-        
-        let icon = zero["icon"] as! String
-        image = weatherIcon(stringIcon: icon)
+    var delegate: OpenWeatherMapDelegate!
+    
+    func getWeatherFor(city: String){
+            
+        let params = ["q" : city]
+        setReqest(parameters: params as [String : AnyObject]?)
 
+    }
+    
+    func weatherFor(geo: CLLocationCoordinate2D) {
+        
+        let params = ["lat" : geo.latitude, "lon" : geo.longitude]
+        setReqest(parameters: params as [String : AnyObject]?)
         
     }
+    
+    func setReqest(parameters: [String : AnyObject]?){
+        
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet Connection Available!")
+            request(weatherUrl, method: HTTPMethod.get, parameters: parameters).responseJSON { response in
+                
+                if let result = response.result.value {
+                
+                    let weatherJson = JSON(result)
+                    DispatchQueue.main.async {
+                        self.delegate.updateWeatherInfo(weatherJson: weatherJson)}
+                    }
+            }
+        } else {
+            
+            print("Internet Connection not Available!")
+                DispatchQueue.main.async {
+                    self.delegate.failure() }
+                }
+    }
+    
+
+    
     
     func timeFromUnix(unixTime: Int) -> String {
         let timeInSecond = TimeInterval(unixTime)
@@ -47,36 +76,84 @@ class OpenWeatherMap {
         
     }
     
-    func weatherIcon(stringIcon: String) -> UIImage{
+    func updateWeatherIcon(condition: Int, nightTime: Bool, index: Int, weatherIcon:(_ index: Int, _ icon: String) -> () ) {
+    
+        switch (condition, nightTime) {
         
-        let imageName: String
-        
-        switch stringIcon {
-        case "01d": imageName = "01d"
-        case "02d": imageName = "02d"
-        case "03d": imageName = "03d"
-        case "04d": imageName = "04d"
-        case "09d": imageName = "09d"
-        case "10d": imageName = "10d"
-        case "11d": imageName = "11d"
-        case "13d": imageName = "13d"
-        case "50d": imageName = "50d"
-        case "01n": imageName = "01n"
-        case "02n": imageName = "02n"
-        case "03n": imageName = "03n"
-        case "04n": imageName = "04n"
-        case "09n": imageName = "09n"
-        case "10n": imageName = "10n"
-        case "11n": imageName = "11n"
-        case "13n": imageName = "13n"
-        case "50n": imageName = "50n"
-        default: imageName = "none"
+        case let (x,y) where x < 300 && y == true:  weatherIcon(index, "11n")
+        case let (x,y) where x < 300 && y == false: weatherIcon(index, "11d")
+            
+        case let (x,y) where x < 500 && y == true:  weatherIcon(index, "09n")
+        case let (x,y) where x < 500 && y == false: weatherIcon(index, "09d")
+            
+        case let (x,y) where x <= 504 && y == true:  weatherIcon(index, "10n")
+        case let (x,y) where x <= 504 && y == false: weatherIcon(index, "10d")
+            
+        case let (x,y) where x == 511 && y == true:  weatherIcon(index, "13n")
+        case let (x,y) where x == 511 && y == false: weatherIcon(index, "13d")
+            
+        case let (x,y) where x < 600 && y == true:  weatherIcon(index, "09n")
+        case let (x,y) where x < 600 && y == false: weatherIcon(index, "09d")
+            
+        case let (x,y) where x < 700 && y == true:  weatherIcon(index, "13n")
+        case let (x,y) where x < 700 && y == false: weatherIcon(index, "13d")
+            
+        case let (x,y) where x < 800 && y == true:  weatherIcon(index, "50n")
+        case let (x,y) where x < 800 && y == false: weatherIcon(index, "50d")
+            
+        case let (x,y) where x == 800 && y == true:  weatherIcon(index, "01n")
+        case let (x,y) where x == 800 && y == false: weatherIcon(index, "01d")
+            
+        case let (x,y) where x < 801 && y == true:  weatherIcon(index, "02n")
+        case let (x,y) where x < 801 && y == false: weatherIcon(index, "02d")
+            
+        case let (x,y) where x > 802 || x < 804 && y == true:   weatherIcon(index, "03n")
+        case let (x,y) where x > 802 || x < 804 && y == false:  weatherIcon(index, "03d")
+            
+        case let (x,y) where x == 804 && y == true:  weatherIcon(index,"04n")
+        case let (x,y) where x == 804 && y == false: weatherIcon(index, "04d")
+            
+        case let (x,y) where x < 1000 && y == true:  weatherIcon(index, "11n")
+        case let (x,y) where x < 1000 && y == false: weatherIcon(index, "11d")
+            
+        case let (x,y): weatherIcon(index, "none")
+
+            
         }
-        let iconImage = UIImage(named: imageName)
-        return iconImage!
-        
-        
-        
+
     }
     
+    
+    
+    func converteTemperature(country: String, temperature: Double) -> Double {
+        
+        if country == "US"{
+            // converte to F
+            return round(((temperature - 273.15) * 1.8) + 32)
+        } else {
+            // converte to C
+            return round(temperature - 273.15)
+        }
+    
+    }
+    
+    func isTimeNight(icon: String) -> Bool {
+    
+        return icon.range(of: "n") != nil
+    }
+    
+//    func isTimeNight(weatherJson: JSON) -> Bool {
+//        
+//        var nightTime = false
+//        let nowTime = NSDate().timeIntervalSince1970
+//        let sunrise = weatherJson["sys"]["sunrise"].double
+//        let sunset = weatherJson["sys"]["sunset"].double
+//        
+//        if (nowTime < sunrise! || nowTime > sunset!) {
+//            nightTime = true
+//        }
+//        return nightTime
+//    }
+
 }
+
